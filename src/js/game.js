@@ -8,7 +8,7 @@ var level = 0;
 $(document).keypress(function (event) {
     if (event.key =="s") {
         nextSequence();
-        level=0;
+        level = 0;
     } else if (event.key =="g" || event.key =="r" || event.key =="y" || event.key =="b" ){
             var pressedColorName = $("." + event.key).attr("id");
             colorName = pressedColorName;
@@ -52,8 +52,10 @@ function checkAnswer(currentLevel) {
 function nextSequence() {
 
     userClickedPattern = [];
+    
+    level = level + 1;
 
-    $("#level-title").text("Lever " + ++level);
+    $("#level-title").text("Lever " + level);
 
     var randomNumber = Math.floor(Math.random() * 4);
 
@@ -68,7 +70,7 @@ function nextSequence() {
 
 function playSound(key) {
 
-    var sound = new Audio("sounds/" + key + ".mp3")
+    var sound = new Audio("src/sounds/" + key + ".mp3")
     $(this).attr("id")
     sound.play();
 
