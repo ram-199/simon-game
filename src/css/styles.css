@@ -53,3 +53,10 @@ div h1{
   box-shadow: 0 0 20px white;
   background-color: grey;
 }
+.start-btn{
+  margin-top: 0;
+  height: 60px;
+  border: 2px solid;
+  font-family: 'Press Start 2P', cursive;
+  background-color: cyan;
+}

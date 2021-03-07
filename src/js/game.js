@@ -5,32 +5,54 @@ var gamePattern = [];
 var userClickedPattern = [];
 
 var level = 0;
-$(document).keypress(function (event) {
-    if (event.key == "s") {
+console.log($(document).width());
+if ($(document).width() > 980) {
+    startButttonClicked();
+    $(document).keypress(function (event) {
+        if (event.key == "s") {
+            setTimeout(() => {
+                gamePattern = [];
+                nextSequence()
+            }, 900);
+            level = 0;
+        } else if (event.key == "1" || event.key == "2" || event.key == "3" || event.key == "4") {
+            var pressedColorName = $("." + event.key).attr("id");
+            colorName = pressedColorName;
+            userClickedPattern.push(colorName);
+            playSound(colorName);
+            animatePress(colorName);
+            checkAnswer(userClickedPattern.length - 1);
+
+        } else {
+            console.log("wrong");
+        }
+    });
+    buttonClick();
+} else {
+    $("h1").hide();
+    startButttonClicked();
+    buttonClick();
+}
+function startButttonClicked() {
+    $(".start-btn").on("click", function () {
+        console.log("clicked");
+        $("h1").show();
         setTimeout(() => {
             gamePattern = [];
             nextSequence()
         }, 900);
-        level = 0;
-    } else if (event.key == "1" || event.key == "2" || event.key == "3" || event.key == "4") {
-        var pressedColorName = $("." + event.key).attr("id");
-        colorName = pressedColorName;
+        level = 0
+    })
+}
+function buttonClick() {
+    $(".btn").click(function () {
+        var colorName = $(this).attr("id")
         userClickedPattern.push(colorName);
         playSound(colorName);
         animatePress(colorName);
         checkAnswer(userClickedPattern.length - 1);
-
-    } else {
-        console.log("wrong");
-    }
-});
-$(".btn").click(function () {
-    var colorName = $(this).attr("id")
-    userClickedPattern.push(colorName);
-    playSound(colorName);
-    animatePress(colorName);
-    checkAnswer(userClickedPattern.length - 1);
-})
+    });
+}
 function checkAnswer(currentLevel) {
 
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
@@ -48,11 +70,20 @@ function checkAnswer(currentLevel) {
         gamePattern = [];
         level = 0;
         $("#level-title").text("Game Over!!\nPress \"S\" to Continue");
+        if ($(document).width() > 980) {
+            $(".start-btn").html("click to restart game");
+            $(".start-btn").show();
 
+        }else{
+            $("h1").hide();
+            $(".start-btn").html("click to restart game");
+            $(".start-btn").show();
+        }
     }
 }
-
 function nextSequence() {
+
+    $(".start-btn").hide();
 
     userClickedPattern = [];
 
