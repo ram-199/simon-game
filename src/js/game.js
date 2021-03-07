@@ -6,21 +6,24 @@ var userClickedPattern = [];
 
 var level = 0;
 $(document).keypress(function (event) {
-    if (event.key =="s") {
-        nextSequence();
+    if (event.key == "s") {
+        setTimeout(() => {
+            gamePattern = [];
+            nextSequence()
+        }, 900);
         level = 0;
-    } else if (event.key =="g" || event.key =="r" || event.key =="y" || event.key =="b" ){
-            var pressedColorName = $("." + event.key).attr("id");
-            colorName = pressedColorName;
-            userClickedPattern.push(colorName);
-            playSound(colorName);
-            animatePress(colorName);
-            checkAnswer(userClickedPattern.length - 1);
+    } else if (event.key == "1" || event.key == "2" || event.key == "3" || event.key == "4") {
+        var pressedColorName = $("." + event.key).attr("id");
+        colorName = pressedColorName;
+        userClickedPattern.push(colorName);
+        playSound(colorName);
+        animatePress(colorName);
+        checkAnswer(userClickedPattern.length - 1);
 
-    }else{
+    } else {
         console.log("wrong");
     }
-    });
+});
 $(".btn").click(function () {
     var colorName = $(this).attr("id")
     userClickedPattern.push(colorName);
@@ -52,7 +55,7 @@ function checkAnswer(currentLevel) {
 function nextSequence() {
 
     userClickedPattern = [];
-    
+
     level = level + 1;
 
     $("#level-title").text("Lever " + level);
