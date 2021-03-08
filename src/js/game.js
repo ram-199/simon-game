@@ -8,6 +8,15 @@ var level = 0;
 console.log($(document).width());
 if ($(document).width() > 980) {
     startButttonClicked();
+    keyBoardClicked();
+    buttonClick();
+} else {
+    $("#level-title").hide();
+    startButttonClicked();
+    keyBoardClicked();
+    buttonClick();
+}
+function keyBoardClicked() {
     $(document).keypress(function (event) {
         if (event.key == "s") {
             setTimeout(() => {
@@ -27,17 +36,12 @@ if ($(document).width() > 980) {
             console.log("wrong");
         }
     });
-    buttonClick();
-} else {
-    $("h1").hide();
-    startButttonClicked();
-    buttonClick();
 }
 function startButttonClicked() {
     $(".start-btn").on("click", function () {
         console.log("clicked");
-        $("h1").show();
         setTimeout(() => {
+            $("#level-title").show();
             gamePattern = [];
             nextSequence()
         }, 900);
@@ -69,7 +73,7 @@ function checkAnswer(currentLevel) {
         }, 100);
         gamePattern = [];
         level = 0;
-        $("#level-title").text("Game Over!!\nPress \"S\" to Continue");
+        $("#level-title").text("Game Over!!\nPress \"S\" to Restart");
         if ($(document).width() > 980) {
             $(".start-btn").html("click to restart game");
             $(".start-btn").show();
@@ -89,7 +93,7 @@ function nextSequence() {
 
     level = level + 1;
 
-    $("#level-title").text("Lever " + level);
+    $("#level-title").text("Level " + level);
 
     var randomNumber = Math.floor(Math.random() * 4);
 

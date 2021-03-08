@@ -1,62 +1,93 @@
 body {
-  text-align: center;
-  background-color: #011F3F;
+    text-align: center;
+    background-color: #011F3F;
 }
 
-div h1 , #level-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+div h1,
+#level-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: #FEF2BF;
 }
 
 .container {
-  display: block;
-  width: 50%;
-  margin: auto;
+    width: 90%;
+    height: 90%;
+    display: block;
+    margin: auto;
+}
 
+div h1 {
+    margin-top: 40%;
 }
-div h1{
-  margin-top:40%;
-}
+
 .btn {
-  margin: 10px;
-  display: inline-block;
-  height: 200px;
-  width: 200px;
-  border: 10px solid black;
-  border-radius: 20%;
+    display: inline-block;
+    margin: 10px;
+    height: 250px;
+    width: 250px;
+    border: 10px solid black;
+    border-radius: 20%;
 }
 
 .game-over {
-  background-color: red;
-  opacity: 0.8;
+    background-color: red;
+    opacity: 0.8;
 }
 
 .red {
-  background-color: red;
+    background-color: red;
 }
 
 .green {
-  background-color: green;
+    background-color: green;
 }
 
 .blue {
-  background-color: blue;
+    background-color: blue;
 }
 
 .yellow {
-  background-color: yellow;
+    background-color: yellow;
 }
 
 .pressed {
-  box-shadow: 0 0 20px white;
-  background-color: grey;
+    box-shadow: 0 0 20px white;
+    background-color: grey;
 }
-.start-btn{
-  margin-top: 0;
-  height: 60px;
-  border: 2px solid;
-  font-family: 'Press Start 2P', cursive;
-  background-color: cyan;
+
+.start-btn {
+    margin-top: 0;
+    height: 60px;
+    border: 2px solid;
+    font-family: 'Press Start 2P', cursive;
+    background-color: cyan;
+}
+
+.start-btn {
+    margin:5%;
+    background: #18c6f2;
+    background-image: -webkit-linear-gradient(top, #18c6f2, #2980b9);
+    background-image: -moz-linear-gradient(top, #18c6f2, #2980b9);
+    background-image: -ms-linear-gradient(top, #18c6f2, #2980b9);
+    background-image: -o-linear-gradient(top, #18c6f2, #2980b9);
+    background-image: linear-gradient(to bottom, #18c6f2, #2980b9);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 23px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.start-btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
 }
